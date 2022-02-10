@@ -1,8 +1,12 @@
-<?php if (!empty($childs)): ?>
+<?php
+$menu_class = \MEDILAB_THEME\Inc\Menus::get_instance();
+
+if (!empty($childs)):
+?>
 <ul>
     <?php
     foreach($childs as $child):
-        $childrens = getChildMenus($full_menu, $child->ID);
+        $childrens = $menu_class->get_child_items($full_menu, $child->ID);
         $child->childs = $childrens;
     ?>
 
@@ -12,7 +16,7 @@
         </a>
 
         <?php if(!empty($child->childs)):
-            echo includeWithParams(get_template_directory() . '/partials/menu/submenu.php', ['childs' => $child->childs, 'full_menu' => $full_menu]);
+            echo includeWithParams(get_template_directory() . '/template-parts/header/menu/submenu.php', ['childs' => $child->childs, 'full_menu' => $full_menu]);
         endif; ?>
     </li>
     <?php endforeach; ?>
