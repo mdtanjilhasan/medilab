@@ -1,3 +1,30 @@
+<?php
+$menu_class = \MEDILAB_THEME\Inc\Menus::get_instance();
+$menuId = $menu_class->get_menu_id('medilab_main_menu');
+
+function includeWithParams($file, $params = [])
+{
+    $output = NULL;
+    if(file_exists($file)){
+        // Extract the variables to a local namespace
+        extract($params);
+
+        // Start output buffering
+        ob_start();
+
+        // Include the template file
+        include $file;
+
+        // End buffering and return its contents
+        $output = ob_get_clean();
+    }
+    return $output;
+}
+
+$headerMenus = wp_get_nav_menu_items($menuId);
+$menus = $menu_class->get_formated_menus($headerMenus);
+
+?>
 <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
@@ -10,7 +37,7 @@
 
         <nav id="navbar" class="navbar order-last order-lg-0">
             <ul>
-                <?php echo includeWithParams(get_template_directory() . '/partials/menu/main_menu.php', ['menus' => $menus, 'headerMenus' => $headerMenus]); ?>
+                <?php echo includeWithParams(MEDILAB_DIR_PATH . '/template-parts/header/menu/main_menu.php', ['menus' => $menus, 'headerMenus' => $headerMenus]); ?>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->

@@ -14,12 +14,12 @@ if (!empty($menus)):
             <a class="<?php echo $a_class; ?>" href="<?php echo $menu->url; ?>"><?php echo $menu->title . $dropdown_icon; ?></a>
 
             <?php if(count($menu->childs)):
-                echo includeWithParams(get_template_directory() . '/partials/menu/submenu.php', ['childs' => $menu->childs, 'full_menu' => $headerMenus]);
+                echo includeWithParams(MEDILAB_DIR_PATH . '/template-parts/header/menu/submenu.php', ['childs' => $menu->childs, 'full_menu' => $headerMenus]);
             endif; ?>
         </li>
     <?php
     endforeach;
 else:
-    include get_template_directory() . '/partials/menu/static.php';
+    include MEDILAB_DIR_PATH . '/template-parts/header/menu/static.php';
 endif;
 ?>
