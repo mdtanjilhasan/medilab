@@ -1,6 +1,7 @@
 <?php
 // loads template footer
 ?>
+</main><!-- End #main -->
 <!-- ======= Footer ======= -->
 <footer id="footer">
 
