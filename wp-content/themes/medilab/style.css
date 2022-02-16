@@ -12,3 +12,23 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: medilab
 Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, featured-images, full-site-editing, block-patterns, rtl-language-support, sticky-post, threaded-comments
 */
+
+.page-header-breadcrumb .breadcrumb li,
+.page-header-breadcrumb .breadcrumb li a,
+.page-header-breadcrumb .breadcrumb-item+.breadcrumb-item::before
+{ color: #fff !important; }
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    padding: 5rem;
+    background: #1977cc;
+    position: absolute;
+    top: -9px;
+    z-index: -1;
+}
+.page-header-breadcrumb .breadcrumb li span {
+    background-color: #4792d6;
+    padding: 3px 10px;
+    border-radius: 15px;
+}
