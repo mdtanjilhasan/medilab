@@ -23,6 +23,8 @@ get_header();
                             <p class="h1 m-0"><?php the_title(); ?></p>
                             <div class="d-flex justify-content-end">
                                 <?php
+                                medilab_comment_count();
+                                echo '<span style="padding: 0 5px"></span>';
                                 medilab_posted_on();
                                 echo '<span style="padding: 0 5px"></span>';
                                 medilab_posted_by();
