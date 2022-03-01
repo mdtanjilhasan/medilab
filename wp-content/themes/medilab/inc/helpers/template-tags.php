@@ -1,5 +1,19 @@
 <?php
 
+function dd()
+{
+    $args = func_get_args();
+    echo '<pre>';
+    if (!empty($args)):
+        foreach ($args as $item):
+            print_r($item);
+            echo '<br>';
+        endforeach;
+    endif;
+    echo '<pre>';
+    wp_die();
+}
+
 function medilab_posted_on()
 {
     $posted_on = '<p class="published-at"><i class="fas fa-calendar"></i>';
@@ -16,6 +30,15 @@ function medilab_posted_by()
     echo $posted_by;
 }
 
+function medilab_comment_count()
+{
+    $post_id = get_the_ID();
+    $comment_count = '<p class="comment-count"><i class="fas fa-comment"></i>';
+    $comment_count .= ' <span class="posted-one text-secondary">' . get_comments_number($post_id) . '</span>';
+    $comment_count .= '</p>';
+    echo $comment_count;
+}
+
 function medilab_get_excerpt($limit = 50, $end = '...')
 {
     $excerpt = get_the_excerpt();
@@ -24,4 +47,9 @@ function medilab_get_excerpt($limit = 50, $end = '...')
         $trimed_excerpt .= $end;
     endif;
     echo $trimed_excerpt;
+}
+
+function medilab_spacing_horizontal($unit = 5)
+{
+    echo '<span style="padding: 0 ' . $unit . 'px"></span>';
 }

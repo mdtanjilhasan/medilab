@@ -27,37 +27,8 @@ if (is_home() && !is_front_page()):
 endif;
 if (have_posts()):
     while (have_posts()): the_post();
-        $post_thumbnail = 'http://via.placeholder.com/640x360';
-        $img = get_the_post_thumbnail();
-        if (!empty($img) && getimagesize($img)) {
-            $post_thumbnail = $img;
-        }
-
-?>
-        <div class="col-md-3 mb-3">
-            <div class="card h-100">
-                <img class="card-img-top" src="<?php echo $post_thumbnail; ?>" loading="lazy" alt="<?php echo the_title(); ?>">
-                <div class="card-body d-flex flex-column justify-content-between">
-                    <div>
-                        <h5 class="card-title"><?php echo the_title(); ?></h5>
-                        <div class="d-flex justify-content-between">
-                             <?php
-                             medilab_posted_on();
-                             medilab_posted_by();
-                             ?>
-                        </div>
-                        <p class="card-text">
-                            <?php medilab_get_excerpt(100); ?>
-                        </p>
-                    </div>
-                    <div class="mt-3">
-                        <a href="<?php echo esc_url(get_the_permalink()); ?>" title="<?php the_title_attribute(); ?>" class="appointment-btn m-0">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-<?php
-        endwhile;
+        get_template_part('template-parts/blog-content');
+    endwhile;
     else:
 ?>
     <section class="no-results not-found">

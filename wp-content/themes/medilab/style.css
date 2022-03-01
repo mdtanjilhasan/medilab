@@ -42,6 +42,13 @@ Tags: one-column, custom-colors, custom-menu, custom-logo, editor-style, feature
     margin-bottom: 30px;
 }
 
+.next-previous-post-link {
+    display: block;
+    width: 100%;
+    float: left;
+    margin-bottom: 15px;
+}
+
 /* 404 page design start */
 
 
