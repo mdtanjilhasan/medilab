@@ -48,3 +48,8 @@ function medilab_get_excerpt($limit = 50, $end = '...')
     endif;
     echo $trimed_excerpt;
 }
+
+function medilab_spacing_horizontal($unit = 5)
+{
+    echo '<span style="padding: 0 ' . $unit . 'px"></span>';
+}
