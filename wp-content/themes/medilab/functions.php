@@ -9,6 +9,7 @@ if (!defined('MEDILAB_DIR_URI')):
 endif;
 
 require_once MEDILAB_DIR_PATH . '/inc/helpers/autoloader.php';
+require_once MEDILAB_DIR_PATH . '/inc/helpers/template-tags.php';
 
 if (!function_exists('medilab_get_theme_instance')):
     function medilab_get_theme_instance()

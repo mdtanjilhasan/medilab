@@ -40,16 +40,14 @@ if (have_posts()):
                 <div class="card-body d-flex flex-column justify-content-between">
                     <div>
                         <h5 class="card-title"><?php echo the_title(); ?></h5>
+                        <div class="d-flex justify-content-between">
+                             <?php
+                             medilab_posted_on();
+                             medilab_posted_by();
+                             ?>
+                        </div>
                         <p class="card-text">
-                            <?php
-                            $excerpt = get_the_excerpt();
-                            echo substr($excerpt, 0, 100);
-                            if (strlen($excerpt) > 100):
-                                echo '...';
-                            else:
-                                echo '';
-                            endif;
-                            ?>
+                            <?php medilab_get_excerpt(100); ?>
                         </p>
                     </div>
                     <div class="mt-3">
