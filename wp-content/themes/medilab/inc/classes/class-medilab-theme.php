@@ -15,6 +15,7 @@ class MEDILAB_THEME
         Assets::get_instance();
         Menus::get_instance();
         Walker_Navigation_Menu::get_instance();
+        Meta_Boxes::get_instance();
         $this->setup_hook();
     }
 
