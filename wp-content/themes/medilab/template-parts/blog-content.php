@@ -3,6 +3,12 @@
  * The Content for blog and single page
  * */
 
+
+//$post_id_ne = get_the_ID();
+//$categories = wp_get_post_categories($post_id_ne);
+//$tags = wp_get_post_tags($post_id_ne);
+//$taxonomies = wp_get_post_terms($post_id_ne, ['category']);
+//dd($taxonomies, $categories, $tags);
 $post_thumbnail = 'http://via.placeholder.com/640x360';
 $img = get_the_post_thumbnail();
 if (!empty($img) && getimagesize($img)) {
@@ -28,16 +34,48 @@ if (is_single()):
                 </div>
                 <div class="post-content"><?php the_content(); ?></div>
             </div>
-            <div class="next-previous-post-link">
-                <?php
-                previous_post_link();
-                medilab_spacing_horizontal();
-                next_post_link();
-                ?>
+            <div class="next-previous-post-link-parent">
+                <div class="next-previous-post-link">
+                    <?php
+                    previous_post_link();
+                    medilab_spacing_horizontal();
+                    next_post_link();
+                    ?>
+                </div>
+
+                <div class="single-page-pagination">
+                    <?php
+                        wp_link_pages([
+                            'before' => '<div class="page-links">' . esc_html__('Pages:', 'medilab'),
+                            'after' => '</div>'
+                        ]);
+                    ?>
+                </div>
             </div>
 
         </div>
-        <div class="col-md-3">The Side bar Widget area</div>
+        <div class="col-md-3">
+            <div class="category-links">
+                <span class="h3 category-heading">Recent Post</span>
+                <?php
+                dynamic_sidebar('medilab-single-page-sidebar');
+                ?>
+            </div>
+
+            <div class="category-links">
+                <span class="h3 category-heading">Categories</span>
+                <?php
+                    medilab_get_post_categories();
+                ?>
+            </div>
+
+            <div class="category-links">
+                <span class="h3 category-heading">Tags</span>
+                <?php
+                    medilab_get_post_tags();
+                ?>
+            </div>
+        </div>
     </div>
 <?php
 else:
