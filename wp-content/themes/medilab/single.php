@@ -19,7 +19,7 @@ get_header();
                     <span class="h1" style="margin-right: 10px">404</span>
                     <span class="h1"><?php esc_html_e('Not Found', 'medilab');?></span>
                 </div>
-                <a href="<?php echo site_url(); ?>" role="button" class="btn btn-link">Back to Home</a>
+                <a href="<?php echo esc_url(site_url()); ?>" role="button" class="btn btn-link">Back to Home</a>
             </header>
         </section>
     <?php
